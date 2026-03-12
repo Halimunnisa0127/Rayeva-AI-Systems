@@ -99,7 +99,7 @@ Rayeva AI System is a powerful backend platform that leverages artificial intell
 
 ## 🖼️ Preview
 ![Home Preview](./frontend/public/Home.png)
-![Category-Generator](../Rayeva-AI-System/frontend/public/Category-Generator.png)
+![Category-Generator](./frontend/public/Category-Generator.png)
 ![Proposal-Generator](./frontend/public/Proposal-Generator.png)
 
 
