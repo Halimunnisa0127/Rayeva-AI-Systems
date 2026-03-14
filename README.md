@@ -1,4 +1,4 @@
-# 🌱 Rayeva AI System - Sustainable Commerce Platform
+# 🌱 Sustainable-E Commerce Platform
 
 <div align="center">
 
@@ -35,7 +35,7 @@
 
 ## 📖 **Overview**
 
-Rayeva AI System is a powerful backend platform that leverages artificial intelligence to automate sustainable commerce operations. Built for the Rayeva AI Systems Assignment, this project demonstrates the integration of AI with real business logic to create production-ready solutions.
+Rayeva AI System is a powerful backend platform that leverages artificial intelligence to automate sustainable commerce operations.this project demonstrates the integration of AI with real business logic to create production-ready solutions.
 
 ### **Why Rayeva AI?**
 - 🤖 **AI-Powered** - Uses Llama 3.1 for intelligent decision making
