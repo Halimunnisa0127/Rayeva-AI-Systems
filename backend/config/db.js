@@ -1,38 +1,20 @@
 const mongoose = require("mongoose")
 
-// Cache the database connection
-let cached = global.mongoose
-
-if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null }
-}
-
 const connectDB = async () => {
   try {
-    if (cached.conn) {
-      console.log("📦 Using cached MongoDB connection")
-      return cached.conn
+    if (!process.env.MONGO_URI) {
+      throw new Error("MONGO_URI is not defined in environment variables")
     }
-
-    if (!cached.promise) {
-      const opts = {
-        bufferCommands: false, // Disable buffering
-        bufferMaxEntries: 0,
-        connectTimeoutMS: 10000, // 10 seconds
-        socketTimeoutMS: 45000, // 45 seconds
-        serverSelectionTimeoutMS: 10000 // 10 seconds
-      }
-
-      console.log("🔄 Connecting to MongoDB...")
-      cached.promise = mongoose.connect(process.env.MONGO_URI, opts)
-    }
-
-    cached.conn = await cached.promise
+    
+    console.log("Attempting to connect to MongoDB...")
+    await mongoose.connect(process.env.MONGO_URI)
     console.log("✅ MongoDB connected successfully")
-    return cached.conn
   } catch (error) {
     console.error("❌ MongoDB connection error:", error.message)
-    throw error // Let the API handle the error
+    // DON'T exit process in production (this causes crash)
+    if (process.env.NODE_ENV !== 'production') {
+      process.exit(1)
+    }
   }
 }
 
