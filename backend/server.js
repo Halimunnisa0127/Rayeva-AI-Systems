@@ -1,3 +1,16 @@
+process.on('uncaughtException', (err) => {
+  console.error('💥 UNCAUGHT EXCEPTION:', err);
+  console.error('Stack:', err.stack);
+  // Don't exit immediately - let Vercel log it
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('💥 UNHANDLED REJECTION:', reason);
+});
+
+
+
+
 // server.js
 require("dotenv").config()
 
@@ -29,3 +42,4 @@ const PORT = process.env.PORT || 9000
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`)
 })
+
